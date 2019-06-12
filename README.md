@@ -1,6 +1,6 @@
 # IconTextField
 
-A customized UITextfield with left/right icon and underline, written in Swift
+A customized UITextfield with left/right icon (16*16) and underline, written in Swift
 
 ### Installing
 
