@@ -34,7 +34,7 @@ import UIKit
     fileprivate func update() {
         border.borderWidth = borderWidth
         border.borderColor = borderColor.cgColor
-        border.frame = CGRect(x: 0, y: frame.height - borderWidth, width: frame.width, height: frame.height)
+        border.frame = CGRect(x: 0, y: bounds.height - borderWidth, width: bounds.width, height: bounds.height)
         
         self.borderStyle = .none
         self.layer.sublayers?.removeAll()
