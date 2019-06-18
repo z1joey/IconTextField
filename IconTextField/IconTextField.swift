@@ -8,62 +8,39 @@
 
 import UIKit
 
-@IBDesignable class IconTextField: UITextField {
+@IBDesignable public class IconTextField: UITextField {
     
-    var leftIconView: UIImageView? = nil
-    var rightIconView: UIImageView? = nil
-    
-    let border = CALayer()
-
-    @IBInspectable public var leftIcon: UIImage? = nil {
+    @IBInspectable public var leftImage: UIImage? = nil {
         didSet { update() }
     }
     
-    @IBInspectable public var rightIcon: UIImage? = nil {
+    @IBInspectable public var rightImage: UIImage? = nil {
         didSet { update() }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.darkGray {
+    @IBInspectable public var imageSize: CGSize = CGSize(width: 16, height: 16) {
         didSet { update() }
     }
     
-    @IBInspectable public var borderWidth: CGFloat = 1.0 {
-        didSet { update() }
-    }
-    
-    fileprivate func update() {
-        border.borderWidth = borderWidth
-        border.borderColor = borderColor.cgColor
-        border.frame = CGRect(x: 0, y: bounds.height - borderWidth, width: bounds.width, height: bounds.height)
-        
-        self.borderStyle = .none
-        self.layer.sublayers?.removeAll()
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-        
-        if leftIconView == nil {
-            leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+    private func update() {
+        if leftImage != nil {
+            leftView = UIImageView(image: leftImage)
+            leftView?.frame.size = imageSize
+            leftViewMode = .always
         }
-        if rightIconView == nil {
-            rightIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+        if rightImage != nil {
+            rightView = UIImageView(image: rightImage)
+            rightView?.frame.size = imageSize
+            rightViewMode = .always
         }
-        
-        leftIconView!.image = leftIcon
-        leftView = leftIconView
-        leftViewMode = .always
-        rightIconView!.image = rightIcon
-        rightView = rightIconView
-        rightViewMode = .always
-        
-        layoutIfNeeded()
     }
     
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 24, dy: 0)
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: bounds.origin.x + ( leftImage?.size.width ?? 0) + 8, dy: 0)
     }
     
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 24, dy: 0)
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: bounds.origin.x + ( leftImage?.size.width ?? 0) + 8, dy: 0)
     }
     
 }
