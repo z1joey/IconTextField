@@ -75,7 +75,7 @@ extension IconTextField {
     /// - Returns: Bool
     func isValidEmail() -> Bool {
         if let emailString = self.text {
-            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", kEmailRulesRegex)
+            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRulesRegex)
             return emailPredicate.evaluate(with: emailString)
         } else {
             return false
@@ -90,7 +90,7 @@ extension IconTextField {
     /// - Returns: Bool
     func isValidPassword() -> Bool {
         if let passwordString = self.text {
-            let passwordPredicate = NSPredicate(format:"SELF MATCHES %@", kPasswordPolicyRegex)
+            let passwordPredicate = NSPredicate(format:"SELF MATCHES %@", passwordPolicyRegex)
             return passwordPredicate.evaluate(with: passwordString)
         } else {
             return false
