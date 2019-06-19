@@ -67,7 +67,7 @@ extension IconTextField {
 
 
 // MARK: - Validation methods
-extension IconTextField {
+public extension IconTextField {
 
     /// Validate self.text according to Email rules and return a bool-type result
     ///
