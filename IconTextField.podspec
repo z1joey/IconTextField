@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IconTextField"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "A customized UITextfield"
 
   spec.swift_version = '5.0'
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "A customized UITextfield with left/right icon"
+  spec.description  = "A customized UITextfield with left/right icon and email/password validator"
 
   spec.homepage     = "https://github.com/z1joey/IconTextField"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
